@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Отделочные работы в Екатеринбурге | Честная бригада</title>
+    <!-- Yandex Fonts (чистый и современный) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (иконки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #1E1E2A;
+            line-height: 1.4;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .header {
+            padding: 16px 0;
+            border-bottom: 1px solid #F0F0F0;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #2C3E50, #1A2632);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            color: #5A6874;
+        }
+
+        .contact-header {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .phone-link {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1E1E2A;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+        .btn-messenger {
+            background: #25D366;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .btn-messenger.telegram {
+            background: #26A5E4;
+        }
+        .btn-messenger:hover {
+            transform: translateY(-2px);
+            filter: brightness(0.96);
+        }
+
+        /* Герой секция */
+        .hero {
+            padding: 50px 0 40px;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+        .hero-badge {
+            background: #FEF3C7;
+            color: #B45309;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero-text h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1A2C3E;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #4A5568;
+            margin-bottom: 30px;
+        }
+        .free-offer {
+            background: #F8FAFE;
+            border-radius: 20px;
+            padding: 18px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .free-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        .free-item i {
+            font-size: 1.3rem;
+            color: #2D6A4F;
+        }
+        .call-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 10px;
+        }
+        .btn-call {
+            background: #1E2A36;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            border: none;
+            font-size: 1rem;
+        }
+        .btn-call i {
+            font-size: 1.2rem;
+        }
+        .btn-call:hover {
+            background: #2C3E50;
+            transform: scale(1.02);
+        }
+        .btn-wa {
+            background: #075E54;
+        }
+        .hero-image {
+            flex: 0.8;
+            min-width: 260px;
+            background: #EFF3F6;
+            border-radius: 32px;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 24px;
+        }
+        .hero-image .img-placeholder {
+            background: #D9E2E8;
+            border-radius: 24px;
+            padding: 45px 20px;
+            font-size: 0.9rem;
+            color: #2C3E50;
+        }
+
+        /* Цены плиткой */
+        .price-section {
+            padding: 60px 0;
+            background: #F9FBFD;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            text-align: center;
+            color: #5C6F87;
+            margin-bottom: 40px;
+        }
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .price-card {
+            background: white;
+            border-radius: 28px;
+            padding: 24px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 1px solid #EDF2F7;
+        }
+        .price-card:hover {
+            transform: translateY(-6px);
+            border-color: #CBD5E0;
+        }
+        .price-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #2C6E4F;
+        }
+        .price-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .price-value {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #1E2A36;
+            margin: 12px 0 8px;
+        }
+        .price-value span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #5A6874;
+        }
+        .price-note {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-top: 12px;
+            border-top: 1px solid #ECF3F9;
+            padding-top: 12px;
+        }
+        .badge-popular {
+            background: #2D6A4F;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Ремонт под ключ выделенный блок */
+        .repair-types {
+            padding: 50px 0;
+        }
+        .double-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .big-card {
+            background: white;
+            border-radius: 32px;
+            flex: 1;
+            min-width: 260px;
+            padding: 28px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid #E9EEF3;
+        }
+        .big-card h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .price-big {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        /* Преимущества бригады */
+        .advantages {
+            background: #FFFFFF;
+            padding: 50px 0;
+        }
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 28px;
+            margin-top: 20px;
+        }
+        .adv-item {
+            text-align: center;
+        }
+        .adv-icon {
+            background: #F1F5F9;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            margin: 0 auto 18px;
+            font-size: 1.8rem;
+            color: #1E4620;
+        }
+
+        /* форма / контактный блок */
+        .contact-section {
+            background: #1E2A36;
+            color: white;
+            border-radius: 48px;
+            margin: 40px 20px;
+            padding: 48px 32px;
+            text-align: center;
+        }
+        .contact-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .direct-phone {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 20px 0;
+        }
+        .direct-phone a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid #4C9F70;
+        }
+        .contact-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0 10px;
+        }
+        .contact-socials a {
+            background: rgba(255,255,255,0.12);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            color: #6C7A8E;
+        }
+        @media (max-width: 750px) {
+            .hero-text h2 { font-size: 1.9rem; }
+            .direct-phone { font-size: 1.5rem; }
+            .contact-socials { flex-direction: column; align-items: center; }
+            .header-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>ОтделкаЕкб</h1>
+            <p>Честная бригада — 8 лет опыта</p>
+        </div>
+        <div class="contact-header">
+            <a href="tel:+79058007043" class="phone-link">+7 905 800-70-43</a>
+            <a href="https://wa.me/79058007043" class="btn-messenger" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://t.me/+79058007043" class="btn-messenger telegram" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container hero">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-ruler-combined"></i> Выезд на замер 0₽</div>
+                <h2>Ремонт и отделка в Екатеринбурге<br> без посредников</h2>
+                <p>Частная бригада отделочников с 8-летним стажем. Составим смету за 1 день, поможем с материалами. Работаем аккуратно и в срок.</p>
+                <div class="free-offer">
+                    <div class="free-item"><i class="fas fa-calculator"></i> Смета бесплатно</div>
+                    <div class="free-item"><i class="fas fa-chalkboard-user"></i> Консультация</div>
+                    <div class="free-item"><i class="fas fa-tape"></i> Замер и выезд</div>
+                </div>
+                <div class="call-buttons">
+                    <a href="tel:+79058007043" class="btn-call"><i class="fas fa-phone-alt"></i> Позвонить</a>
+                    <a href="https://wa.me/79058007043" class="btn-call btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Написать в WhatsApp</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="img-placeholder">
+                    <i class="fas fa-hard-hat" style="font-size: 3rem; color:#2C6E4F;"></i>
+                    <p style="margin-top: 12px;">Отделка квартир и домов<br> в Екатеринбурге</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПРАЙС-ЛИСТ (ОТДЕЛОЧНЫЕ РАБОТЫ) -->
+    <div class="price-section">
+        <div class="container">
+            <div class="section-title">Стоимость работ за м²</div>
+            <div class="section-sub">Прозрачные цены без скрытых доплат</div>
+            <div class="price-grid">
+                <div class="price-card"><div class="price-icon"><i class="fas fa-fill-drip"></i></div><h3>Шпаклёвка</h3><div class="price-value">от 350 ₽ <span>/м²</span></div><div class="price-note">под обои или покраску</div></div>
+                <div class="price-card"><div class="price-icon"><i class="fas fa-paint-roller"></i></div><h3>Поклейка обоев</h3><div class="price-value">от 300 ₽ <span>/м²</span></div><div class="price-note">любые типы, подгонка рисунка</div></div>
+                <div class="price-card"><div class="price-icon"><i class="fas fa-fill"></i></div><h3>Грунтовка</h3><div class="price-value">70 ₽ <span>/м²</span></div><div class="price-note">глубокое проникновение</div></div>
+                <div class="price-card"><div class="price-icon"><i class="fas fa-brush"></i></div><h3>Покраска</h3><div class="price-value">от 400 ₽ <span>/м²</span></div><div class="price-note">вал, кисть, ровный слой</div></div>
+                <div class="price-card"><div class="price-icon"><i class="fas fa-border-all"></i></div><h3>Ламинат</h3><div class="price-value">от 500 ₽ <span>/м²</span></div><div class="price-note">с подложкой, без порогов</div></div>
+                <div class="price-card"><div class="price-icon"><i class="fas fa-grip-lines"></i></div><h3>Монтаж плинтуса</h3><div class="price-value">от 200 ₽ <span>/м.п.</span></div><div class="price-note">пластик, МДФ, дерево</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- КОМПЛЕКСНЫЕ РЕШЕНИЯ -->
+    <div class="repair-types">
+        <div class="container">
+            <div class="section-title">Комплексные решения</div>
+            <div class="section-sub">Экономьте, заказывая полный спектр</div>
+            <div class="double-card">
+                <div class="big-card">
+                    <h3>🔨 Ремонт под ключ</h3>
+                    <div class="price-big">от 1 200 ₽ <span style="font-size:1rem;">/м²</span></div>
+                    <p>Всё включено: черновая и чистовая отделка, электрика, сантехника, финишные покрытия. Под ключ — въезжай и живи.</p>
+                </div>
+                <div class="big-card">
+                    <h3>✨ Косметический ремонт</h3>
+                    <div class="price-big">от 1 400 ₽ <span style="font-size:1rem;">/м²</span></div>
+                    <p>Выравнивание стен, потолков, оклейка обоями, покраска, замена плинтусов. Быстрое обновление интерьера.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПРЕИМУЩЕСТВА (ОТЛИЧИЕ ОТ КОНКУРЕНТОВ) -->
+    <div class="advantages">
+        <div class="container">
+            <div class="section-title">Почему выбирают нас</div>
+            <div class="section-sub">Частная бригада, а не агентство</div>
+            <div class="adv-grid">
+                <div class="adv-item"><div class="adv-icon"><i class="fas fa-users"></i></div><h4>8 лет опыта</h4><p>Стабильная команда, сотни объектов в Екб</p></div>
+                <div class="adv-item"><div class="adv-icon"><i class="fas fa-file-signature"></i></div><h4>Договор + гарантия</h4><p>Юридическая прозрачность, гарантия 1 год</p></div>
+                <div class="adv-item"><div class="adv-icon"><i class="fas fa-stopwatch"></i></div><h4>Соблюдаем сроки</h4><p>Фиксируем даты в договоре, без задержек</p></div>
+                <div class="adv-item"><div class="adv-icon"><i class="fas fa-hand-holding-usd"></i></div><h4>Фиксированная смета</h4><p>Цена не меняется после подписания</p></div>
+                <div class="adv-item"><div class="adv-icon"><i class="fas fa-truck"></i></div><h4>Помощь с материалами</h4><p>Закупаем с вашей скидкой или под ключ</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПРЯМОЙ КОНТАКТНЫЙ БЛОК -->
+    <div class="container">
+        <div class="contact-section">
+            <i class="fas fa-phone-volume" style="font-size: 2rem; opacity: 0.9;"></i>
+            <h3>Остались вопросы? Свяжитесь напрямую</h3>
+            <div class="direct-phone"><a href="tel:+79058007043">+7 905 800-70-43</a></div>
+            <p style="margin-bottom: 10px;">Звонок, WhatsApp, Telegram — отвечаем с 9:00 до 21:00</p>
+            <div class="contact-socials">
+                <a href="tel:+79058007043"><i class="fas fa-phone"></i> Позвонить</a>
+                <a href="https://wa.me/79058007043" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/+79058007043" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.85rem;">Выезд на замер и консультация — <strong>бесплатно</strong>. Работаем по Екатеринбургу и области.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Частная бригада отделочников, Екатеринбург. Все работы выполняются с соблюдением технологий.</p>
+        <p style="margin-top: 8px;"><i class="fas fa-map-marker-alt"></i> Екатеринбург и Свердловская область</p>
+    </div>
+</footer>
+</body>
+</html>
